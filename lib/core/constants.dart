@@ -19,3 +19,4 @@ const List<Color> boxcolors = [
   Colors.green,
   Colors.pink
 ];
+const List<String> circleavatrchildern = ['☀', '🌕', '🥱', '🤲🏻'];

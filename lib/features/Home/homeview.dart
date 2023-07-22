@@ -59,6 +59,7 @@ class Customazkarlistview extends StatelessWidget {
           return CustomAzkarButton(
             maintext: miantexts[index],
             subtext: subtexts[index],
+            circleavatarchild: circleavatrchildern[index],
             boxcolor: boxcolors[index],
           );
         },

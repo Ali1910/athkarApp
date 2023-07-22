@@ -5,8 +5,10 @@ class CustomAzkarButton extends StatelessWidget {
       {super.key,
       required this.maintext,
       required this.subtext,
-      required this.boxcolor});
+      required this.boxcolor,
+      required this.circleavatarchild});
   final String maintext;
+  final String circleavatarchild;
   final String subtext;
   final Color boxcolor;
 
@@ -56,14 +58,14 @@ class CustomAzkarButton extends StatelessWidget {
               const SizedBox(
                 width: 25,
               ),
-              const CircleAvatar(
+              CircleAvatar(
                 radius: 42,
                 backgroundColor: Colors.white,
                 // backgroundImage: AssetImage('assets/images/OIP.jpeg'),
 
                 child: Text(
-                  '🤲🏻',
-                  style: TextStyle(fontSize: 30),
+                  circleavatarchild,
+                  style: const TextStyle(fontSize: 30),
                 ),
               ),
             ],
