@@ -1,15 +1,18 @@
-import 'package:azkarapp/core/constants.dart';
-import 'package:azkarapp/features/Home/widgets/CustomAzkarbutton.dart';
+import 'package:azkarapp/core/cubits/BottomnavigationbarCubit/BottomNavigationBarStates.dart';
+import 'package:azkarapp/core/cubits/BottomnavigationbarCubit/Bottomnavigationbarcubit.dart';
+import 'package:azkarapp/features/Home/widgets/CustomAzkarListView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'homeview.dart';
+import '../../core/Utilies/Custombar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var Myblocprovider = BlocProvider.of<NavagationbarCubit>(context);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -17,7 +20,6 @@ class HomeView extends StatelessWidget {
           icon: const Icon(
             Icons.search,
             size: 30,
-            color: Colors.black,
           ),
         ),
         actions: [
@@ -26,49 +28,26 @@ class HomeView extends StatelessWidget {
             icon: const Icon(
               Icons.menu,
               size: 30,
-              color: Colors.black,
             ),
           )
         ],
         elevation: 0,
-        backgroundColor: Colors.white,
-        systemOverlayStyle: const SystemUiOverlayStyle(
-            statusBarColor: Colors.white,
-            statusBarIconBrightness: Brightness.dark),
         centerTitle: true,
         title: const Text(
           'الرئيسية',
-          style: TextStyle(color: Colors.black, fontSize: 24),
+          style: TextStyle(fontSize: 24),
         ),
       ),
-      body: const Customazkarlistview(),
-    );
-  }
-}
-
-class Customazkarlistview extends StatelessWidget {
-  const Customazkarlistview({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ListView.separated(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (context, index) {
-          return CustomAzkarButton(
-            maintext: miantexts[index],
-            subtext: subtexts[index],
-            circleavatarchild: circleavatrchildern[index],
-            boxcolor: boxcolors[index],
-          );
+      body: BlocBuilder<NavagationbarCubit, BottomNavigationBarStates>(
+        builder: (BuildContext context, state) {
+          return Myblocprovider.screenview[Myblocprovider.currentinderx];
         },
-        separatorBuilder: (context, index) {
-          return const SizedBox(
-            height: 30,
-          );
+      ),
+      bottomNavigationBar:
+          BlocBuilder<NavagationbarCubit, BottomNavigationBarStates>(
+        builder: (BuildContext context, state) {
+          return CustomNavigationBar(Myblocprovider: Myblocprovider);
         },
-        itemCount: miantexts.length,
       ),
     );
   }

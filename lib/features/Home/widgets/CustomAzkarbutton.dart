@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../core/cubits/BottomnavigationbarCubit/Bottomnavigationbarcubit.dart';
 
 class CustomAzkarButton extends StatelessWidget {
   const CustomAzkarButton(
@@ -25,9 +28,13 @@ class CustomAzkarButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(64),
             gradient: LinearGradient(
               colors: [
-                boxcolor.withOpacity(0.7),
+                BlocProvider.of<NavagationbarCubit>(context).darkmode
+                    ? boxcolor.withOpacity(0.4)
+                    : boxcolor.withOpacity(0.7),
                 boxcolor.withOpacity(0.5),
-                boxcolor.withOpacity(0.4),
+                BlocProvider.of<NavagationbarCubit>(context).darkmode
+                    ? boxcolor.withOpacity(0.7)
+                    : boxcolor.withOpacity(0.4),
               ],
             ),
           ),
