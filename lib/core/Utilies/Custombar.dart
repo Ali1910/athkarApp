@@ -11,7 +11,7 @@ class CustomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       elevation: 0,
-      currentIndex: Myblocprovider.currentinderx,
+      currentIndex: Myblocprovider.currentindex,
       onTap: (index) {
         Myblocprovider.Tapped(index);
       },

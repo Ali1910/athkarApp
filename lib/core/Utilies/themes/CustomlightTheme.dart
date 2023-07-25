@@ -3,6 +3,9 @@ import 'package:flutter/services.dart';
 
 ThemeData LightTheme() {
   return ThemeData.light().copyWith(
+    textTheme: const TextTheme(
+        bodyMedium:
+            TextStyle(fontFamily: 'Noto Naskh Arabic', color: Colors.black)),
     iconTheme: const IconThemeData(color: Colors.black),
     appBarTheme: const AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle(

@@ -1,11 +1,8 @@
-import 'package:azkarapp/core/cubits/BottomnavigationbarCubit/BottomNavigationBarStates.dart';
-import 'package:azkarapp/core/cubits/BottomnavigationbarCubit/Bottomnavigationbarcubit.dart';
-import 'package:azkarapp/features/Home/widgets/CustomAzkarListView.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../core/Utilies/Custombar.dart';
+import '../../core/cubits/BottomnavigationbarCubit/appcubit.dart';
+import '../../core/cubits/BottomnavigationbarCubit/appstates.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -40,7 +37,8 @@ class HomeView extends StatelessWidget {
       ),
       body: BlocBuilder<NavagationbarCubit, BottomNavigationBarStates>(
         builder: (BuildContext context, state) {
-          return Myblocprovider.screenview[Myblocprovider.currentinderx];
+          return Myblocprovider
+              .bottomnavgationbarviews[Myblocprovider.currentindex];
         },
       ),
       bottomNavigationBar:

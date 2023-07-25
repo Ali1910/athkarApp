@@ -13,4 +13,6 @@ class sharedhelper {
   static getdata(String key) {
     return preferences.getBool(key);
   }
+
+  static bool isdark = sharedhelper.getdata('isdark') ?? false;
 }

@@ -1,8 +1,9 @@
+import 'package:azkarapp/features/Home/azkarelsabah.dart';
 import 'package:azkarapp/features/Home/widgets/CustomAzkarbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/constants.dart';
-import '../../../core/cubits/BottomnavigationbarCubit/Bottomnavigationbarcubit.dart';
+import '../../../core/cubits/BottomnavigationbarCubit/appcubit.dart';
 
 class Customazkarlistview extends StatelessWidget {
   const Customazkarlistview({super.key});
@@ -15,6 +16,18 @@ class Customazkarlistview extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return CustomAzkarButton(
+            onTap: () {
+              BlocProvider.of<NavagationbarCubit>(context).mainlist = index;
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return BlocProvider.of<NavagationbarCubit>(context)
+                        .screensview[index];
+                  },
+                ),
+              );
+            },
             maintext: miantexts[index],
             subtext: subtexts[index],
             circleavatarchild: circleavatrchildern[index],
