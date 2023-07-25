@@ -21,6 +21,92 @@ class NavagationbarCubit extends Cubit<BottomNavigationBarStates> {
   int mainlist = 0;
   int membernumber = 0;
   int index = 0;
+  void erasecountersforalsabah() {
+    alllists[0] = [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ];
+
+    emit(TappedState());
+  }
+
+  void erasecountersforalmasa() {
+    alllists[1] = [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ];
+
+    emit(TappedState());
+  }
+
+  void erasecountersforalnoam() {
+    alllists[2] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    emit(TappedState());
+  }
+
+  void erasecountersforalsalah() {
+    alllists[3] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    emit(TappedState());
+  }
 
   void Tapped(int index) {
     currentindex = index;
@@ -29,6 +115,7 @@ class NavagationbarCubit extends Cubit<BottomNavigationBarStates> {
 
   void increment({required int requirment}) {
     alllists[mainlist][membernumber];
+
     if (requirment > alllists[mainlist][membernumber]) {
       alllists[mainlist][membernumber]++;
       emit(TappedState());

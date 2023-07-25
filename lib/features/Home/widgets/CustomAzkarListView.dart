@@ -13,7 +13,6 @@ class Customazkarlistview extends StatelessWidget {
     return Center(
       child: ListView.separated(
         shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return CustomAzkarButton(
             onTap: () {

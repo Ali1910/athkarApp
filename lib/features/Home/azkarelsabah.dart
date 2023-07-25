@@ -16,9 +16,12 @@ class Azkarelsabahview extends StatelessWidget {
       appBar: AppBar(
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                BlocProvider.of<NavagationbarCubit>(context)
+                    .erasecountersforalsabah();
+              },
               icon: const Icon(
-                Icons.exposure_zero,
+                Icons.restart_alt_outlined,
                 size: 30,
               ))
         ],
